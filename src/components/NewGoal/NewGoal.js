@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './NewGoal.css';
 
 const NewGoal = ({ onAddGoal }) => {
-  let enteredText = '';
+  const [enteredText, setEnteredText] = useState('');
 
   const addGoalHandler = (event) => {
     event.preventDefault();
@@ -14,15 +14,16 @@ const NewGoal = ({ onAddGoal }) => {
     }
 
     onAddGoal(newGoal);
+    setEnteredText('');
   }
 
   const textChangeHandler = (event) => {
-    enteredText = event.target.value;
+    setEnteredText(event.target.value);
   }
 
   return (
     <form className='new-goal' onSubmit={addGoalHandler}>
-      <input type='text' onChange={textChangeHandler} />
+      <input type='text' value={enteredText} onChange={textChangeHandler} />
       <button type='submit'>Add Goal</button>
     </form>
   );
