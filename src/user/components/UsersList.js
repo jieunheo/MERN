@@ -1,6 +1,7 @@
 import React from "react";
 
 import UserItem from "./UserItem";
+import Card from "../../shared/components/UI/Card";
 import "./UsersList.css";
 
 const UsersList = ({ users }) => {
@@ -8,7 +9,9 @@ const UsersList = ({ users }) => {
     // user가 없음
     return (
       <div className="center">
-        <h2>No Users Found!</h2>
+        <Card>
+          <h2>No Users Found!</h2>
+        </Card>
       </div>
     );
   }
