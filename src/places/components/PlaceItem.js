@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import Button from "../../shared/components/FormElements/Button";
 import Card from "../../shared/components/UI/Card";
 import Modal from "../../shared/components/UI/Modal";
+import Map from "../../shared/components/UI/Map";
 import './PlaceItem.css';
 
-const PlaceItem = ({ id, image, title, address, description }) => {
+const PlaceItem = ({ id, image, title, address, description, coordinates }) => {
   const [showMap, setShowMap] = useState(false);
 
   const openMapHandler = () => setShowMap(true);
@@ -22,7 +23,7 @@ const PlaceItem = ({ id, image, title, address, description }) => {
         footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
       >
         <div className="map-container">
-          <h2>THE MAP!</h2>
+          <Map center={coordinates} zoom={16} />
         </div>
       </Modal>
       <li className="place-item">
