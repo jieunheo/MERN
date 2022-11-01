@@ -12,8 +12,8 @@ const DEMO_LIST = [
     address: 'oo ooo oo',
     creator: 'u1',
     location: {
-      lat: '35.814705',
-      lng: '127.152629'
+      lat: 35.814705,
+      lng: 127.152629
     }
   },
   {
@@ -24,8 +24,8 @@ const DEMO_LIST = [
     address: 'oo ooo oo',
     creator: 'u1',
     location: {
-      lat: '35.814705',
-      lng: '127.152629'
+      lat: 35.814705,
+      lng: 127.152629
     }
   },
   {
@@ -36,8 +36,8 @@ const DEMO_LIST = [
     address: 'oo ooo oo',
     creator: 'u2',
     location: {
-      lat: '35.814705',
-      lng: '127.152629'
+      lat: 35.814705,
+      lng: 127.152629
     }
   }
 ]
