@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
 
 import { validate } from '../../util/validators';
 import './Input.css';
@@ -27,7 +27,17 @@ const Input = (props) => {
   // const [isValid, setIsValid] = useState(false);
 
   // useReducer(reducer상태 관리를 위한 코드, 초기값)
-  const [inputState, dispatch] = useReducer(inputReducer, { value: '', isValid: false, isTouched: false });
+  const [inputState, dispatch] = useReducer(inputReducer, {
+    value: '', 
+    isValid: false, 
+    isTouched: false 
+  });
+
+  const { id, onInput } = props;
+  const { value, isValid } = inputState;
+  useEffect(() => {
+    onInput(id, value, isValid)
+  }, [onInput, id, value, isValid]);
 
   const touchHandler = () => {
     dispatch({ type: 'TOUCH' });
