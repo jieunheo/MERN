@@ -14,6 +14,10 @@ const init = {
     description: { // description 값, 유효성
       value: '',
       isValid: false
+    },
+    address: { // address 값, 유효성
+      value: '',
+      isValid: false
     }
   },
   isValid: false // 유효성
@@ -23,8 +27,8 @@ const formReducer = (state, action) => {
   switch (action.type) {
     case 'INPUT_CHANGE':
       let formValid = true; // 상태 확인을 위한 값
-      for(const inputId in state.inputs) { // title, description
-        if(inputId === action.inputId) {   // title 또는 description
+      for(const inputId in state.inputs) { // title, description, address
+        if(inputId === action.inputId) {   // title 또는 description 또는 address
           formValid = formValid && action.isValid;         // 해당하는 값 상태 적용
         } else {
           formValid = formValid && state.inputs[inputId].isValid; // 나머지 값은 이전 값으로 적용
@@ -60,8 +64,13 @@ const NewPlace = () => {
     })
   }, []);
 
+  const placeSubmitHandler = (event) => {
+    event.preventDefault();
+    console.log(formState.inputs); // send this to the backend!
+  }
+
   return (
-    <form className="place-form">
+    <form className="place-form" onSubmit={placeSubmitHandler}>
       <Input 
         id='title'
         element='input' 
@@ -77,6 +86,15 @@ const NewPlace = () => {
         label='Description' 
         validators={[VALIDATOR_MINLENGTH(5)]} 
         errorText='Please enter a valid description (at least 5 charactors).' 
+        onInput={inputHandler}
+      />
+      <Input 
+        id='address'
+        element='input' 
+        type='text' 
+        label='Address' 
+        validators={[VALIDATOR_REQUIRE()]} 
+        errorText='Please enter a valid Address.' 
         onInput={inputHandler}
       />
       <Button
