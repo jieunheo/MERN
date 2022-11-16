@@ -1,9 +1,10 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from "../../shared/util/validators";
+import './PlaceForm.css';
 
 const DEMO_LIST = [
   {
@@ -45,7 +46,7 @@ const DEMO_LIST = [
 ]
 
 const UpdatePlace = () => {
-  const placeId = useParams.placeId;
+  const placeId = useParams().placeId;
 
   const identifiedPlace = DEMO_LIST.find(place => place.id === placeId);
 
@@ -58,7 +59,7 @@ const UpdatePlace = () => {
   }
  
   return (
-    <form className="place-form" onSubmit={placeSubmitHandler}>
+    <form className="place-form">
       <Input 
         id='title'
         element='input' 

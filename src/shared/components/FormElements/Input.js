@@ -28,8 +28,8 @@ const Input = (props) => {
 
   // useReducer(reducer상태 관리를 위한 코드, 초기값)
   const [inputState, dispatch] = useReducer(inputReducer, {
-    value: '', 
-    isValid: false, 
+    value: props.value || '', 
+    isValid: props.valid || false, 
     isTouched: false 
   });
 

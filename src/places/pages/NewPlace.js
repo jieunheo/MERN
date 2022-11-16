@@ -3,7 +3,7 @@ import React, { useCallback, useReducer } from "react";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from "../../shared/util/validators";
-import './NewPlace.css';
+import './PlaceForm.css';
 
 const init = {
   inputs: { // input 값 상태 관리
